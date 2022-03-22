@@ -1,0 +1,52 @@
+# How many cores we use
+numcpu: 3
+
+# debug mode
+debug: true
+
+# (Producer) beanstalkd settings
+queue:
+  # Connection string
+  dsn: 127.0.0.1:11300
+  # Incoming tube
+  in: "js"
+  # Outgoing tube
+  out: "spy"
+
+# Workers 
+worker:
+  # cycles to live
+  ttl: 10
+  # Num goroutines
+  num: 4
+  # HTTP timeouts sec
+  timeout: 90
+  # HTTP client useragent
+  useragent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36
+
+
+# (Consumer) Storage settings
+storage:
+  # Mongodb connection
+  dsn: mongodb://localhost:27017
+  # Database
+  db: ms
+  # Collection
+  name: js
+  # Timeout (sec)
+  timeout: 10
+  # Num goroutines
+  num: 30
+
+
+
+# Database (MysqL)
+database:
+  # Connection string
+  dsn: user:pass@tcp(0.0.0.0:3306)/db?tls=skip-verify&autocommit=true&&charset=utf8mb4&collation=utf8mb4_unicode_ci
+  # Max open connections
+  open: 40
+  # Max idle connections
+  idle: 40
+  # Max TTL
+  ttl: 100
